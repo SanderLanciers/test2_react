@@ -4,6 +4,7 @@ import {Numbers} from "./components/Numbers";
 import {Cars} from "./components/Cars";
 import {Persons} from "./components/Person";
 import {Cities} from "./components/City";
+import {citiesFromPersonData} from "./utilities/person_utilities";
 
 function App() {
     return (
@@ -17,7 +18,9 @@ function App() {
             <Numbers numbers={PERSON_DATA.map(p => p.age)} title="Leeftijden van de Personen"/>
             <Numbers numbers={[...new Set(PERSON_DATA.map(p => p.age).sort((al, ar) => al - ar))]}
                      title="Leeftijden van de Personen gesorteerd"/>
-            <Cities cities={[{name: "Antwerpen", numberOfPersons: 111}, {name: "Brussel", numberOfPersons: 32}]} title="City test"/>
+            <Cities cities={[{name: "Antwerpen", numberOfPersons: 111}, {name: "Brussel", numberOfPersons: 32}]}
+                    title="City test"/>
+            <Cities cities={citiesFromPersonData(PERSON_DATA)} title="Cities"/>
         </div>
     )
         ;
