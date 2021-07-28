@@ -13,6 +13,7 @@ function App() {
             <Cars cars={CARS} title="Auto's"/>
             <Persons persons={PERSON_DATA} title="Personen"/>
             <Persons persons={[...PERSON_DATA].sort((pl,pr)=> pl.age-pr.age)} title="Personen volgens leeftijd"/>
+            <Numbers numbers={PERSON_DATA.map(p => p.age)} title="Leeftijden van de Personen"/>
         </div>
     );
 }
