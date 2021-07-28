@@ -3,6 +3,7 @@ import {CARS, NUMBER_DATA, PERSON_DATA} from "./ data/data";
 import {Numbers} from "./components/Numbers";
 import {Cars} from "./components/Cars";
 import {Persons} from "./components/Person";
+import {Cities} from "./components/City";
 
 function App() {
     return (
@@ -12,10 +13,14 @@ function App() {
             <Numbers numbers={NUMBER_DATA.map(n => n * 2)} title="Numbers*2"/>
             <Cars cars={CARS} title="Auto's"/>
             <Persons persons={PERSON_DATA} title="Personen"/>
-            <Persons persons={[...PERSON_DATA].sort((pl,pr)=> pl.age-pr.age)} title="Personen volgens leeftijd"/>
+            <Persons persons={[...PERSON_DATA].sort((pl, pr) => pl.age - pr.age)} title="Personen volgens leeftijd"/>
             <Numbers numbers={PERSON_DATA.map(p => p.age)} title="Leeftijden van de Personen"/>
+            <Numbers numbers={[...new Set(PERSON_DATA.map(p => p.age).sort((al, ar) => al - ar))]}
+                     title="Leeftijden van de Personen gesorteerd"/>
+            <Cities cities={[{name: "Antwerpen", numberOfPersons: 111}, {name: "Brussel", numberOfPersons: 32}]} title="City test"/>
         </div>
-    );
+    )
+        ;
 }
 
 export default App;
