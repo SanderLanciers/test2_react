@@ -1,3 +1,30 @@
+const COLORS_CAR_CSS = [
+    {nameInCar: "blauw", backGroundColorInCss: "blue", colorInCss: "white"},
+    {nameInCar: "geel", backGroundColorInCss: "yellow"},
+    {nameInCar: "zwart", backGroundColorInCss: "black", colorInCss: "white"},
+    {nameInCar: "wit", backGroundColorInCss: "black"},
+    {nameInCar: "rood", backGroundColorInCss: "black", colorInCss: "white"},
+    {nameInCar: "grijs", backGroundColorInCss: "black"},
+];
+
+function styleColor(color) {
+    const colorCarCss = COLORS_CAR_CSS.find(c => c.nameInCar === color);
+    if (!colorCarCss) return;
+    return {
+        backgroundColor: colorCarCss.backGroundColorInCss,
+        color: colorCarCss.colorInCss,
+        margin: "0.5em"
+    };
+}
+
+function CarColor(props) {
+    const {color} = props;
+
+    if (!color) return null;
+    return <div style={styleColor(color)}>
+        kleur: {color} &nbsp;
+    </div>;
+}
 
 function Car(props) {
     const {car} = props;
@@ -5,7 +32,7 @@ function Car(props) {
         <h4>{car.name}</h4>
         {car.brand && <div>merk: {car.brand}</div>}
         {car.type && <div>type: {car.type}</div>}
-        {car.color && <div>kleur: {car.color}</div>}
+        <CarColor color={car.color}/>
     </div>;
 }
 
