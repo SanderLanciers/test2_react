@@ -18,10 +18,15 @@ body {
   clear: both;
   visibility: hidden;
 }
+
 .card {
   width: 20%;
   box-shadow: 1px 1px 5px #80808080;
   border-radius: 4px;
   margin: 2vw;
   float: left;
+}
+
+.car {
+  width: 45%;
 }
