@@ -1,10 +1,11 @@
+
 function Car(props) {
     const {car} = props;
     return <div className="card car">
         <h4>{car.name}</h4>
-        <div>merk: {car.brand}</div>
-        <div>type: {car.type}</div>
-        <div>kleur: {car.color}</div>
+        {car.brand && <div>merk: {car.brand}</div>}
+        {car.type && <div>type: {car.type}</div>}
+        {car.color && <div>kleur: {car.color}</div>}
     </div>;
 }
 

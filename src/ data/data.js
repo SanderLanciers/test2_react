@@ -12,5 +12,14 @@ export const CARS = [
         brand: "fiat",
         type: "punto",
         color: "geel"
+    },
+    {
+        name: "die van mijn pa",
+        brand: "volvo",
+        color: "zwart"
+    },
+    {
+        name: "geitje",
+        brand: "citroën",
     }
 ];
