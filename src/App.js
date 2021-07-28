@@ -12,6 +12,7 @@ function App() {
             <Numbers numbers={NUMBER_DATA.map(n => n * 2)} title="Numbers*2"/>
             <Cars cars={CARS} title="Auto's"/>
             <Persons persons={PERSON_DATA} title="Personen"/>
+            <Persons persons={[...PERSON_DATA].sort((pl,pr)=> pl.age-pr.age)} title="Personen volgens leeftijd"/>
         </div>
     );
 }
