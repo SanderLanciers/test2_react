@@ -1,3 +1,5 @@
+import {Section} from "./Section";
+
 const COLORS_CAR_CSS = [
     {nameInCar: "blauw", backGroundColorInCss: "blue", colorInCss: "white"},
     {nameInCar: "geel", backGroundColorInCss: "yellow"},
@@ -39,8 +41,7 @@ function Car(props) {
 export function Cars(props) {
     const {cars, title} = props;
 
-    return <div className="section">
-        <h3>{title}</h3>
+    return <Section title={title}>
         {cars.map((c) => <Car key={c.name} car={c}/>)}
-    </div>;
+    </Section>;
 }

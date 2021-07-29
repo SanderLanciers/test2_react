@@ -1,3 +1,4 @@
+import {Section} from "./Section";
 
 export function City(props) {
     const {city} = props;
@@ -9,9 +10,8 @@ export function City(props) {
 
 export function Cities(props) {
     const {cities, title} = props;
-    return <div className="section">
-        <h3>{title}</h3>
+    return <Section title={title}>
         {cities.map(c => <City key={c.name} city={c}/>)}
-    </div>
+    </Section>
 
 }
