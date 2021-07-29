@@ -1,4 +1,5 @@
 import {Section} from "./Section";
+import {Card} from "./Card";
 
 const COLORS_CAR_CSS = [
     {nameInCar: "blauw", backGroundColorInCss: "blue", colorInCss: "white"},
@@ -30,12 +31,11 @@ function CarColor(props) {
 
 function Car(props) {
     const {car} = props;
-    return <div className="card car">
-        <h4>{car.name}</h4>
+    return <Card title={car.name} extraClassName="car">
         {car.brand && <div>merk: {car.brand}</div>}
         {car.type && <div>type: {car.type}</div>}
         <CarColor color={car.color}/>
-    </div>;
+    </Card>;
 }
 
 export function Cars(props) {
