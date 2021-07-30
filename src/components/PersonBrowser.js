@@ -6,6 +6,7 @@ export function PersonBrowser(props) {
     const {persons} = props;
     const [shownPerson, setShownPerson] = useState(persons[0]);
     const [favoritePersons, setFavoritePersons] = useState([])
+    const isShownPersonFavorite = favoritePersons.some(p => p.id === shownPerson.id);
 
     function setNextShownPerson() {
         const indexOfShownPerson = persons.findIndex(p => p.id === shownPerson.id);
@@ -20,7 +21,7 @@ export function PersonBrowser(props) {
     }
 
     function toggleFavorite() {
-        if (favoritePersons.some(p => p.id===shownPerson.id))
+        if (isShownPersonFavorite)
             setFavoritePersons(favoritePersons.filter(p => p.id !== shownPerson.id))
         else
             setFavoritePersons([...favoritePersons, shownPerson])
@@ -32,12 +33,12 @@ export function PersonBrowser(props) {
             <div>
                 <button onClick={() => setPrevShownPerson()}>&lt;</button>
             </div>
-            <Person person={shownPerson}/>
+            <Person person={shownPerson} isFavorite={isShownPersonFavorite}/>
             <div>
                 <button onClick={() => setNextShownPerson()}>&gt;</button>
             </div>
         </div>
-        <button onClick = {() => toggleFavorite()}>toggle favoriet</button>
+        <button onClick={() => toggleFavorite()}>toggle favoriet</button>
     </Section>;
 }
 
