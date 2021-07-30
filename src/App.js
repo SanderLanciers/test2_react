@@ -7,6 +7,7 @@ import {Cities} from "./components/City";
 import {citiesFromPersonData} from "./utilities/person_utilities";
 import {EventDemo} from "./components/EventDemo";
 import {StateDemo} from "./components/StateDemo";
+import {PersonBrowser} from "./components/PersonBrowser";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
             <Cities cities={citiesFromPersonData(PERSON_DATA)} title="Cities"/>
             <EventDemo/>
             <StateDemo/>
+            <PersonBrowser persons={PERSON_DATA}/>
         </div>
     );
 }
