@@ -2,8 +2,20 @@ import React, {useState} from 'react';
 import {Section} from "./Section";
 import {Numbers} from "./Numbers";
 
-export function StateDemo() {
+
+function OnOffDemo() {
     const [isOn, setIsOn] = useState(false);
+
+    return <>
+        <h3>huidige waarde van state is: {isOn ? "ON" : "OFF"}</h3>
+        <button onClick={() => setIsOn(true)}>verander de state in true</button>
+        <button onClick={() => setIsOn(false)}>verander de state in false</button>
+        <button onClick={() => setIsOn(!isOn)}>toggle state</button>
+        <div>huidige waarde van state is: {isOn ? "ON" : "OFF"}</div>
+    </>;
+}
+
+export function StateDemo() {
     const [counter, setCounter] = useState(0);
     const [favoriteNumbers, setFavoriteNumbers] = useState([]);
     const isCounterFavorite = favoriteNumbers.includes(counter);
@@ -17,11 +29,7 @@ export function StateDemo() {
     }
 
     return <Section title="state">
-        <h3>huidige waarde van state is: {isOn ? "ON" : "OFF"}</h3>
-        <button onClick={() => setIsOn(true)}>verander de state in true</button>
-        <button onClick={() => setIsOn(false)}>verander de state in false</button>
-        <button onClick={() => setIsOn(!isOn)}>toggle state</button>
-        <div>huidige waarde van state is: {isOn ? "ON" : "OFF"}</div>
+        <OnOffDemo/>
         <hr/>
         <div>counter is {counter}</div>
         <button onClick={() => setCounter(counter + 1)}>+</button>
