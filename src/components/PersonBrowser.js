@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {Section} from "./Section";
-import {Person} from "./Person";
+import {Person, Persons} from "./Person";
 
 export function PersonBrowser(props) {
     const {persons} = props;
     const [shownPerson, setShownPerson] = useState(persons[0]);
+    const [favoritePersons, setFavoritePersons] = useState([])
 
     function setNextShownPerson() {
         const indexOfShownPerson = persons.findIndex(p => p.id === shownPerson.id);
@@ -18,7 +19,15 @@ export function PersonBrowser(props) {
         setShownPerson(persons[indexOfNextPerson]);
     }
 
+    function toggleFavorite() {
+        if (favoritePersons.some(p => p.id===shownPerson.id))
+            setFavoritePersons(favoritePersons.filter(p => p.id !== shownPerson.id))
+        else
+            setFavoritePersons([...favoritePersons, shownPerson])
+    }
+
     return <Section title="Mijn Favoriete Personen">
+        <div><Persons persons={favoritePersons}/></div>
         <div className="personWithButtons">
             <div>
                 <button onClick={() => setPrevShownPerson()}>&lt;</button>
@@ -28,6 +37,7 @@ export function PersonBrowser(props) {
                 <button onClick={() => setNextShownPerson()}>&gt;</button>
             </div>
         </div>
+        <button onClick = {() => toggleFavorite()}>toggle favoriet</button>
     </Section>;
 }
 
