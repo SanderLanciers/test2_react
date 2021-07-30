@@ -7,6 +7,15 @@ export function StateDemo() {
     const [counter, setCounter] = useState(0);
     const [favoriteNumbers, setFavoriteNumbers] = useState([]);
     const isCounterFavorite = favoriteNumbers.includes(counter);
+    const toggleFavoriteButtonText = isCounterFavorite ? `verwijder ${counter} als favoriet` : `kies ${counter} als favoriet`;
+
+    function toggleFavoriteNumber() {
+        if (favoriteNumbers.includes(counter))
+            setFavoriteNumbers(favoriteNumbers.filter((n) => n !== counter));
+        else
+            setFavoriteNumbers([...favoriteNumbers, counter]);
+    }
+
     return <Section title="state">
         <h3>huidige waarde van state is: {isOn ? "ON" : "OFF"}</h3>
         <button onClick={() => setIsOn(true)}>verander de state in true</button>
@@ -23,16 +32,7 @@ export function StateDemo() {
         <button onClick={() => setCounter(counter - 1)}>-</button>
         <hr/>
         <Numbers numbers={favoriteNumbers} title="favoriete getallen"/>
-        <button
-            onClick={() => {
-                if (favoriteNumbers.includes(counter))
-                    setFavoriteNumbers(favoriteNumbers.filter((n) => n !== counter));
-                else
-                    setFavoriteNumbers([...favoriteNumbers, counter]);
-            }}>
-            {isCounterFavorite && `verwijder ${counter} als favoriet`}
-            {!isCounterFavorite && `kies ${counter} als favoriet`}
-        </button>
+        <button onClick={toggleFavoriteNumber}>{toggleFavoriteButtonText}</button>
     </Section>;
 }
 
