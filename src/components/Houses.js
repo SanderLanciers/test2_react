@@ -5,7 +5,10 @@ export function House(props) {
     const {house} = props;
 
 
-
+    onmessage = () => {
+        if (this.stores.appState.currentScreen==='MessagesPage') return;  // Don't show the popup
+        this.popup.show();
+    }
     return <Card className={house.status}>
         <h3>{house.name}</h3>
         <div>type: {house.type}</div>
