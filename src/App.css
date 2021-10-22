@@ -1,3 +1,18 @@
+.card.option {
+    border: 2px blue solid;
+    background-color: lightblue;
+}
+
+.card.forsale {
+    border: 2px green solid;
+    background-color: lightgreen;
+}
+
+.card.sold {
+    border: 2px gray solid;
+    background-color: lightgray;
+    opacity: 0.3;
+}
 body {
     text-align: center;
     background-color: lavender;
@@ -43,3 +58,4 @@ body {
 .favoritePerson {
     border: red solid;
 }
+
