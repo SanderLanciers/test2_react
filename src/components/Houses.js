@@ -6,7 +6,7 @@ export function House(props) {
 
 
     onmessage = () => {
-        if (this.stores.appState.currentScreen==='MessagesPage') return;  // Don't show the popup
+        if (this.stores.appState.currentScreen==='MessagesPage') return;
         this.popup.show();
     }
     return <Card className={house.status}>
@@ -21,7 +21,6 @@ export function House(props) {
         {(house.status === "option" && house.status === "for sale") ? ""
             : <button onClick={house.status="sold"}>sold</button>
         }
-
     </Card>
 }
 
